@@ -1,95 +1,353 @@
 {{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
-<article class="cv-page">
-    <div class="cv-content">
-        {{ .Content }}
+<article class="cv-page-modern">
+    <div class="cv-container">
+        <!-- Header -->
+        <div class="cv-header">
+            <div class="cv-avatar">
+                {{ with .Site.Params.avatar }}
+                <img src="{{ . | relURL }}" alt="{{ $.Site.Params.authorName }}">
+                {{ else }}
+                <div class="cv-avatar-placeholder">{{ substr $.Site.Params.authorName 0 1 }}</div>
+                {{ end }}
+            </div>
+            <div class="cv-header-info">
+                <h1>{{ .Site.Params.authorName | default "Your Name" }}</h1>
+                <p class="cv-subtitle">{{ .Site.Params.subtitle | default "Your Title" }}</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="cv-content-wrapper">
+            <!-- Left Column -->
+            <div class="cv-sidebar">
+                <section class="cv-section">
+                    <h2>CONTACT</h2>
+                    <div class="cv-contact-item">
+                        <i>📧</i>
+                        <span>{{ .Site.Params.social.email }}</span>
+                    </div>
+                    <div class="cv-contact-item">
+                        <i>🔗</i>
+                        <span>{{ .Site.Params.social.github }}</span>
+                    </div>
+                    <div class="cv-contact-item">
+                        <i>📍</i>
+                        <span>TP. Hồ Chí Minh, Việt Nam</span>
+                    </div>
+                </section>
+
+                <section class="cv-section">
+                    <h2>EDUCATION</h2>
+                    <div class="cv-edu-item">
+                        <div class="cv-year">2020 - 2024</div>
+                        <h3>ĐẠI HỌC CNTT</h3>
+                        <p>Cử nhân Công nghệ thông tin</p>
+                        <p>GPA: 3.5/4.0</p>
+                    </div>
+                </section>
+
+                <section class="cv-section">
+                    <h2>SKILLS</h2>
+                    <ul class="cv-skills-list">
+                        <li>Java & Spring Boot</li>
+                        <li>JavaScript & React</li>
+                        <li>HTML/CSS</li>
+                        <li>MySQL & PostgreSQL</li>
+                        <li>Git & GitHub</li>
+                        <li>Docker</li>
+                        <li>RESTful API</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- Right Column -->
+            <div class="cv-main">
+                <section class="cv-section">
+                    <h2>PROFILE</h2>
+                    <p>{{ .Site.Params.bio }}</p>
+                </section>
+
+                <section class="cv-section">
+                    <h2>WORK EXPERIENCE</h2>
+                    
+                    <div class="cv-work-item">
+                        <div class="cv-work-header">
+                            <div>
+                                <h3>Thực tập sinh Phát triển Web</h3>
+                                <p class="cv-company">Công ty ABC Technology</p>
+                            </div>
+                            <div class="cv-date">2024 - Hiện tại</div>
+                        </div>
+                        <ul>
+                            <li>Phát triển ứng dụng web với Java Spring Boot và React</li>
+                            <li>Tham gia xây dựng RESTful API</li>
+                            <li>Làm việc với MySQL và MongoDB</li>
+                        </ul>
+                    </div>
+
+                    <div class="cv-work-item">
+                        <div class="cv-work-header">
+                            <div>
+                                <h3>Freelance Developer</h3>
+                                <p class="cv-company">Tự do</p>
+                            </div>
+                            <div class="cv-date">2023 - 2024</div>
+                        </div>
+                        <ul>
+                            <li>Phát triển website cho khách hàng nhỏ</li>
+                            <li>Xây dựng landing page với HTML/CSS/JavaScript</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="cv-section">
+                    <h2>PROJECTS</h2>
+                    
+                    <div class="cv-project-item">
+                        <h3>Blog cá nhân về lập trình</h3>
+                        <p class="cv-tech">Hugo + GitHub Pages | 2025</p>
+                        <ul>
+                            <li>Xây dựng blog chia sẻ kiến thức về Java và JavaScript</li>
+                            <li>Thiết kế theme tối giản, responsive</li>
+                        </ul>
+                    </div>
+
+                    <div class="cv-project-item">
+                        <h3>Hệ thống quản lý sinh viên</h3>
+                        <p class="cv-tech">Java Spring Boot + React | 2024</p>
+                        <ul>
+                            <li>Xây dựng API với Spring Boot</li>
+                            <li>Frontend với React và Material-UI</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
     </div>
-    
+
     <div class="cv-actions">
         <button onclick="window.print()" class="btn btn-primary">📄 In CV</button>
-        <a href="/cv.pdf" class="btn btn-secondary" download>⬇️ Tải CV (PDF)</a>
     </div>
 </article>
 
 <style>
-.cv-page {
-    max-width: 900px;
+.cv-page-modern {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1000px;
     margin: 2rem auto;
-    padding: 2rem;
+    background: white;
 }
 
-.cv-content h1 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
+.cv-container {
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
 }
 
-.cv-content h1 + p {
-    text-align: center;
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-}
-
-.cv-content hr {
-    border: none;
-    border-top: 2px solid var(--border-color);
-    margin: 2rem 0;
-}
-
-.cv-content h2 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin: 2rem 0 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary-color);
-}
-
-.cv-content h3 {
-    font-size: 1.25rem;
-    margin: 1.5rem 0 0.5rem;
-    color: var(--text-color);
-}
-
-.cv-content ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.cv-content ul li {
-    padding-left: 1.5rem;
+.cv-header {
+    background: linear-gradient(135deg, #4a6fa5 0%, #5d7fa8 100%);
+    color: white;
+    padding: 3rem 2rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
     position: relative;
+}
+
+.cv-header::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 50px 200px;
+    border-color: transparent transparent #e8edf3 transparent;
+}
+
+.cv-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    background: white;
+}
+
+.cv-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cv-avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #4a6fa5;
+    background: #f0f0f0;
+}
+
+.cv-header-info h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cv-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cv-content-wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 500px;
+}
+
+.cv-sidebar {
+    background: #f7f9fb;
+    padding: 3rem 2rem;
+    border-right: 1px solid #e0e0e0;
+}
+
+.cv-main {
+    padding: 3rem 2rem;
+    background: white;
+}
+
+.cv-section {
+    margin-bottom: 2.5rem;
+}
+
+.cv-section h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #4a6fa5;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #4a6fa5;
+    letter-spacing: 1px;
+}
+
+.cv-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.cv-contact-item i {
+    font-style: normal;
+}
+
+.cv-edu-item {
+    margin-bottom: 1.5rem;
+}
+
+.cv-year {
+    color: #4a6fa5;
+    font-weight: 600;
+    font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
 
-.cv-content ul li::before {
-    content: "▸";
+.cv-edu-item h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.cv-edu-item p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.25rem 0;
+}
+
+.cv-skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.cv-skills-list li {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #555;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.cv-skills-list li::before {
+    content: '▸';
     position: absolute;
     left: 0;
-    color: var(--primary-color);
+    color: #4a6fa5;
     font-weight: bold;
 }
 
-.cv-actions {
+.cv-work-item,
+.cv-project-item {
+    margin-bottom: 2rem;
+}
+
+.cv-work-header {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
 }
 
-.btn-primary {
-    background: var(--primary-color);
-    color: white;
+.cv-work-item h3,
+.cv-project-item h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0 0 0.25rem 0;
 }
 
-.btn-secondary {
-    background: var(--bg-secondary);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
+.cv-company,
+.cv-tech {
+    color: #4a6fa5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0.25rem 0;
+}
+
+.cv-date {
+    color: #888;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.cv-work-item ul,
+.cv-project-item ul {
+    margin: 0.75rem 0 0 1.25rem;
+    padding: 0;
+}
+
+.cv-work-item li,
+.cv-project-item li {
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.cv-actions {
+    text-align: center;
+    padding: 2rem;
 }
 
 @media print {
@@ -97,19 +355,29 @@
         display: none;
     }
     
-    .cv-page {
+    .cv-page-modern {
         max-width: 100%;
-        padding: 0;
+        margin: 0;
     }
     
-    .cv-content h1 {
-        font-size: 2rem;
+    .cv-container {
+        box-shadow: none;
     }
 }
 
 @media (max-width: 768px) {
-    .cv-actions {
+    .cv-header {
         flex-direction: column;
+        text-align: center;
+    }
+    
+    .cv-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .cv-sidebar {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
     }
 }
 </style>
