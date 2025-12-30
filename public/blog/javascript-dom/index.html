@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation với JavaScript - Blog Lập Trình - KhanhLDD</title>
+    <meta name="description" content="Blog chia sẻ kiến thức về lập trình Java và JavaScript">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+    <nav class="nav container">
+        <div class="nav-brand">
+            <a href="/">Blog Lập Trình - KhanhLDD</a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/" class="">Home</a></li>
+            <li><a href="/blog" class="active">Blog</a></li>
+            <li><a href="/cv" class="">CV</a></li>
+        </ul>
+    </nav>
+</header>
+
+    
+    <main class="container">
+        
+<article class="post-single">
+    <header class="post-header">
+        <h1>DOM Manipulation với JavaScript</h1>
+        <div class="post-meta">
+            <time>23/12/2025</time>
+            
+            <span class="tags">
+                
+                <span class="tag">JavaScript</span>
+                
+                <span class="tag">DOM</span>
+                
+            </span>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <h2 id="dom-là-gì">DOM là gì?</h2>
+<p>DOM (Document Object Model) là giao diện lập trình cho các tài liệu HTML và XML, cho phép JavaScript thao tác với cấu trúc trang web.</p>
+<h2 id="selecting-elements">Selecting Elements</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// By ID
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;myId&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// By Class
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">elements</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByClassName</span>(<span style="color:#e6db74">&#39;myClass&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Query Selector (khuyên dùng)
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">elem</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;.myClass&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">elems</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#e6db74">&#39;.myClass&#39;</span>);
+</span></span></code></pre></div><h2 id="thay-đổi-nội-dung">Thay đổi nội dung</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Text content
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;New text&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// HTML content
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;strong&gt;Bold text&lt;/strong&gt;&#34;</span>;
+</span></span></code></pre></div><h2 id="thay-đổi-style">Thay đổi style</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">fontSize</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;20px&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Hoặc thêm class
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#39;active&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">remove</span>(<span style="color:#e6db74">&#39;inactive&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">toggle</span>(<span style="color:#e6db74">&#39;visible&#39;</span>);
+</span></span></code></pre></div><h2 id="tạo-và-thêm-elements">Tạo và thêm elements</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newDiv</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">newDiv</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello&#34;</span>;
+</span></span><span style="display:flex;"><span>document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">newDiv</span>);
+</span></span></code></pre></div><h2 id="event-listeners">Event Listeners</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">button</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;button&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Button clicked!&#39;</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Arrow function
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Button clicked!&#39;</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h2 id="event-delegation">Event Delegation</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;ul&#39;</span>).<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">tagName</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;LI&#39;</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;List item clicked:&#39;</span>, <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">textContent</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h2 id="kết-luận">Kết luận</h2>
+<p>DOM manipulation là kỹ năng cơ bản để tạo các trang web tương tác.</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        <div class="post-nav">
+            
+            <a href="http://localhost:1313/blog/javascript-async/" class="prev">← Asynchronous JavaScript: Promises và Async/Await</a>
+            
+            
+            <a href="http://localhost:1313/blog/javascript-es6/" class="next">ES6&#43; Features trong JavaScript →</a>
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Blog Lập Trình - KhanhLDD. All rights reserved.</p>
+        <p>Made with ❤️ and <a href="https://gohugo.io/" target="_blank">Hugo</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

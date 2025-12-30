@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection Framework trong Java - Blog Lập Trình - KhanhLDD</title>
+    <meta name="description" content="Blog chia sẻ kiến thức về lập trình Java và JavaScript">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+    <nav class="nav container">
+        <div class="nav-brand">
+            <a href="/">Blog Lập Trình - KhanhLDD</a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/" class="">Home</a></li>
+            <li><a href="/blog" class="active">Blog</a></li>
+            <li><a href="/cv" class="">CV</a></li>
+        </ul>
+    </nav>
+</header>
+
+    
+    <main class="container">
+        
+<article class="post-single">
+    <header class="post-header">
+        <h1>Collection Framework trong Java</h1>
+        <div class="post-meta">
+            <time>28/12/2025</time>
+            
+            <span class="tags">
+                
+                <span class="tag">Java</span>
+                
+                <span class="tag">Collections</span>
+                
+            </span>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <h2 id="collection-framework-là-gì">Collection Framework là gì?</h2>
+<p>Collection Framework cung cấp các cấu trúc dữ liệu và thuật toán để lưu trữ và thao tác với nhóm đối tượng.</p>
+<h2 id="các-interface-chính">Các interface chính</h2>
+<h3 id="list">List</h3>
+<ul>
+<li>Danh sách có thứ tự, cho phép trùng lặp</li>
+<li>Ví dụ: ArrayList, LinkedList</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>list.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Java&#34;</span>);
+</span></span><span style="display:flex;"><span>list.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Python&#34;</span>);
+</span></span><span style="display:flex;"><span>list.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;JavaScript&#34;</span>);
+</span></span></code></pre></div><h3 id="set">Set</h3>
+<ul>
+<li>Tập hợp không cho phép trùng lặp</li>
+<li>Ví dụ: HashSet, TreeSet</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Set<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> set <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>set.<span style="color:#a6e22e">add</span>(1);
+</span></span><span style="display:flex;"><span>set.<span style="color:#a6e22e">add</span>(2);
+</span></span><span style="display:flex;"><span>set.<span style="color:#a6e22e">add</span>(1); <span style="color:#75715e">// Không thêm được vì trùng</span>
+</span></span></code></pre></div><h3 id="map">Map</h3>
+<ul>
+<li>Lưu trữ cặp key-value</li>
+<li>Ví dụ: HashMap, TreeMap</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Map<span style="color:#f92672">&lt;</span>String, Integer<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>map.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;Java&#34;</span>, 1);
+</span></span><span style="display:flex;"><span>map.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;Python&#34;</span>, 2);
+</span></span></code></pre></div><h2 id="kết-luận">Kết luận</h2>
+<p>Collection Framework là công cụ quan trọng trong Java để quản lý dữ liệu hiệu quả.</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        <div class="post-nav">
+            
+            <a href="http://localhost:1313/blog/java-exception/" class="prev">← Exception Handling trong Java</a>
+            
+            
+            <a href="http://localhost:1313/blog/java-oop/" class="next">Lập trình Hướng đối tượng trong Java →</a>
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Blog Lập Trình - KhanhLDD. All rights reserved.</p>
+        <p>Made with ❤️ and <a href="https://gohugo.io/" target="_blank">Hugo</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

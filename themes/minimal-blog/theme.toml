@@ -1,0 +1,12 @@
+name = "Minimal Blog"
+license = "MIT"
+licenselink = "https://github.com/yourusername/minimal-blog/blob/main/LICENSE"
+description = "A minimal and clean blog theme for Hugo"
+homepage = "https://github.com/yourusername/minimal-blog"
+tags = ["blog", "minimal", "clean", "responsive"]
+features = ["blog", "responsive"]
+min_version = "0.112.0"
+
+[author]
+  name = "KhanhLDD"
+  homepage = "https://example.org"

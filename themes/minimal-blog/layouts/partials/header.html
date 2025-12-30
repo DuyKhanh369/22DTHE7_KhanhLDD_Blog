@@ -1,0 +1,12 @@
+<header class="header">
+    <nav class="nav container">
+        <div class="nav-brand">
+            <a href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="{{ "/" | relURL }}" class="{{ if .IsHome }}active{{ end }}">Home</a></li>
+            <li><a href="{{ "/blog" | relURL }}" class="{{ if eq .Section "blog" }}active{{ end }}">Blog</a></li>
+            <li><a href="{{ "/cv" | relURL }}" class="{{ if eq .RelPermalink "/cv/" }}active{{ end }}">CV</a></li>
+        </ul>
+    </nav>
+</header>

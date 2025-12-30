@@ -1,0 +1,48 @@
+{{ define "title" }}{{ .Site.Title }} - {{ .Site.Params.subtitle }}{{ end }}
+
+{{ define "main" }}
+<section class="hero">
+    <div class="hero-content">
+        {{ with .Site.Params.avatar }}
+        <img src="{{ . | relURL }}" alt="Avatar" class="avatar">
+        {{ end }}
+        <h1>{{ .Site.Params.authorName | default "Chào mừng" }}</h1>
+        <p class="subtitle">{{ .Site.Params.subtitle }}</p>
+        <p class="bio">{{ .Site.Params.bio }}</p>
+        
+        {{ with .Site.Params.social }}
+        <div class="social-links">
+            {{ with .github }}<a href="{{ . }}" target="_blank">GitHub</a>{{ end }}
+            {{ with .linkedin }}<a href="{{ . }}" target="_blank">LinkedIn</a>{{ end }}
+            {{ with .email }}<a href="mailto:{{ . }}">Email</a>{{ end }}
+        </div>
+        {{ end }}
+    </div>
+</section>
+
+<section class="recent-posts">
+    <h2>Bài viết mới nhất</h2>
+    <div class="posts-grid">
+        {{ range first 6 (where .Site.RegularPages "Section" "blog") }}
+        <article class="post-card">
+            <a href="{{ .Permalink }}" class="post-card-link">
+                <h3>{{ .Title }}</h3>
+                <div class="post-meta">
+                    <time>{{ .Date.Format "02/01/2006" }}</time>
+                    {{ with .Params.tags }}
+                    <span class="tags">
+                        {{ range . }}
+                        <span class="tag">{{ . }}</span>
+                        {{ end }}
+                    </span>
+                    {{ end }}
+                </div>
+            </a>
+        </article>
+        {{ end }}
+    </div>
+    <div class="text-center">
+        <a href="{{ "/blog" | relURL }}" class="btn">Xem tất cả bài viết</a>
+    </div>
+</section>
+{{ end }}

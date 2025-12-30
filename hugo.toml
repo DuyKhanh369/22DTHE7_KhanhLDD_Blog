@@ -1,0 +1,15 @@
+baseURL = 'https://example.org/'
+languageCode = 'vi'
+title = 'Blog Lập Trình - KhanhLDD'
+theme = 'minimal-blog'
+
+[params]
+  authorName = "Le Dang Duy Khanh"
+  subtitle = "Lập trình viên Java & JavaScript"
+  bio = "Chào mừng bạn đến với blog cá nhân của tôi! Tôi chia sẻ kiến thức về lập trình mạng, Java và JavaScript."
+  description = "Blog chia sẻ kiến thức về lập trình Java và JavaScript"
+  avatar = "/images/avatar.jpg"
+
+  [params.social]
+    github = "https://github.com/DuyKhanh369"
+    email = "Ledangduykhanh2609@gmail.com"

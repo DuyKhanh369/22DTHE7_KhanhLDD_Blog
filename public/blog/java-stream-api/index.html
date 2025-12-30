@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream API trong Java 8 - Blog Lập Trình - KhanhLDD</title>
+    <meta name="description" content="Blog chia sẻ kiến thức về lập trình Java và JavaScript">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+    <nav class="nav container">
+        <div class="nav-brand">
+            <a href="/">Blog Lập Trình - KhanhLDD</a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/" class="">Home</a></li>
+            <li><a href="/blog" class="active">Blog</a></li>
+            <li><a href="/cv" class="">CV</a></li>
+        </ul>
+    </nav>
+</header>
+
+    
+    <main class="container">
+        
+<article class="post-single">
+    <header class="post-header">
+        <h1>Stream API trong Java 8</h1>
+        <div class="post-meta">
+            <time>26/12/2025</time>
+            
+            <span class="tags">
+                
+                <span class="tag">Java</span>
+                
+                <span class="tag">Java 8</span>
+                
+                <span class="tag">Stream</span>
+                
+            </span>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <h2 id="stream-api-là-gì">Stream API là gì?</h2>
+<p>Stream API được giới thiệu trong Java 8, cho phép xử lý dữ liệu theo phong cách functional programming.</p>
+<h2 id="ưu-điểm">Ưu điểm</h2>
+<ul>
+<li>Code ngắn gọn, dễ đọc hơn</li>
+<li>Hỗ trợ xử lý song song</li>
+<li>Lazy evaluation</li>
+</ul>
+<h2 id="các-thao-tác-cơ-bản">Các thao tác cơ bản</h2>
+<h3 id="filter">Filter</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> numbers <span style="color:#f92672">=</span> Arrays.<span style="color:#a6e22e">asList</span>(1, 2, 3, 4, 5, 6);
+</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> evenNumbers <span style="color:#f92672">=</span> numbers.<span style="color:#a6e22e">stream</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(n <span style="color:#f92672">-&gt;</span> n <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">collect</span>(Collectors.<span style="color:#a6e22e">toList</span>());
+</span></span></code></pre></div><h3 id="map">Map</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> names <span style="color:#f92672">=</span> Arrays.<span style="color:#a6e22e">asList</span>(<span style="color:#e6db74">&#34;Java&#34;</span>, <span style="color:#e6db74">&#34;Python&#34;</span>, <span style="color:#e6db74">&#34;JavaScript&#34;</span>);
+</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> lengths <span style="color:#f92672">=</span> names.<span style="color:#a6e22e">stream</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">map</span>(String::length)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">collect</span>(Collectors.<span style="color:#a6e22e">toList</span>());
+</span></span></code></pre></div><h3 id="reduce">Reduce</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> numbers.<span style="color:#a6e22e">stream</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">reduce</span>(0, (a, b) <span style="color:#f92672">-&gt;</span> a <span style="color:#f92672">+</span> b);
+</span></span></code></pre></div><h2 id="parallel-stream">Parallel Stream</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> result <span style="color:#f92672">=</span> numbers.<span style="color:#a6e22e">parallelStream</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(n <span style="color:#f92672">-&gt;</span> n <span style="color:#f92672">&gt;</span> 2)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">collect</span>(Collectors.<span style="color:#a6e22e">toList</span>());
+</span></span></code></pre></div><h2 id="kết-luận">Kết luận</h2>
+<p>Stream API giúp xử lý collection hiệu quả và code dễ bảo trì hơn.</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        <div class="post-nav">
+            
+            <a href="http://localhost:1313/blog/javascript-co-ban/" class="prev">← Giới thiệu về JavaScript</a>
+            
+            
+            <a href="http://localhost:1313/blog/java-exception/" class="next">Exception Handling trong Java →</a>
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Blog Lập Trình - KhanhLDD. All rights reserved.</p>
+        <p>Made with ❤️ and <a href="https://gohugo.io/" target="_blank">Hugo</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
