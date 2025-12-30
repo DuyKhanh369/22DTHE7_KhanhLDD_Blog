@@ -2,6 +2,7 @@
 title: "Giới thiệu về JavaScript"
 date: 2025-12-25T10:00:00+07:00
 tags: ["JavaScript", "Cơ bản"]
+image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&h=400&fit=crop"
 ---
 
 ## JavaScript là gì?

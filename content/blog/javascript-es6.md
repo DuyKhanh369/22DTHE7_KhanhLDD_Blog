@@ -2,6 +2,7 @@
 title: "ES6+ Features trong JavaScript"
 date: 2025-12-24T10:00:00+07:00
 tags: ["JavaScript", "ES6"]
+image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&h=400&fit=crop"
 ---
 
 ## ES6 (ECMAScript 2015)

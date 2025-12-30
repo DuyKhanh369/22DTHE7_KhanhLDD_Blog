@@ -19,6 +19,11 @@
                 </span>
                 {{ end }}
             </div>
+            {{ with .Params.image }}
+            <div class="post-featured-image">
+                <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+            </div>
+            {{ end }}
         </header>
         
         <div class="post-content">

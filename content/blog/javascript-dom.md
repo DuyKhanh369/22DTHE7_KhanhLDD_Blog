@@ -2,6 +2,7 @@
 title: "DOM Manipulation với JavaScript"
 date: 2025-12-23T10:00:00+07:00
 tags: ["JavaScript", "DOM"]
+image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop"
 ---
 
 ## DOM là gì?

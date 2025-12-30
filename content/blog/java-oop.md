@@ -2,6 +2,7 @@
 title: "Lập trình Hướng đối tượng trong Java"
 date: 2025-12-29T10:00:00+07:00
 tags: ["Java", "OOP"]
+image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop"
 ---
 
 ## OOP là gì?

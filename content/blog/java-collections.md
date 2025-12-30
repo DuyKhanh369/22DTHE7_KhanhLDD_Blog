@@ -2,6 +2,7 @@
 title: "Collection Framework trong Java"
 date: 2025-12-28T10:00:00+07:00
 tags: ["Java", "Collections"]
+image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop"
 ---
 
 ## Collection Framework là gì?

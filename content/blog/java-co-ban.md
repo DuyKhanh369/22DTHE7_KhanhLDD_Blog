@@ -2,6 +2,7 @@
 title: "Giới thiệu về Java Cơ bản"
 date: 2025-12-30T10:00:00+07:00
 tags: ["Java", "Cơ bản"]
+image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=400&fit=crop"
 ---
 
 ## Giới thiệu
