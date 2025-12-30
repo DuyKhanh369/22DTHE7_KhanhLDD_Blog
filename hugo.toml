@@ -6,6 +6,9 @@ publishDir = 'docs'
 canonifyURLs = true
 relativeURLs = false
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 [params]
   authorName = "Le Dang Duy Khanh"
   subtitle = "Lập trình viên Java & JavaScript"

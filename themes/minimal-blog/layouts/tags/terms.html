@@ -1,0 +1,21 @@
+{{ define "title" }}Tags - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<div class="tags-cloud-page">
+    <h1>Tags</h1>
+    <p class="subtitle">Tất cả các chủ đề được thảo luận trên blog</p>
+    
+    <div class="tags-cloud">
+        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+        {{ $count := .Count }}
+        {{ $size := add 1 (mul (div $count 2) 0.5) }}
+        <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" 
+           class="tag-cloud-item" 
+           style="font-size: {{ $size }}rem;"
+           title="{{ $count }} bài viết">
+            {{ $name }} <span class="tag-count">({{ $count }})</span>
+        </a>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

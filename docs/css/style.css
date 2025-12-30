@@ -52,6 +52,8 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .nav-brand a {
@@ -74,6 +76,77 @@ a:hover {
 .nav-menu a.active,
 .nav-menu a:hover {
     color: var(--primary-color);
+}
+
+/* Search */
+.search-container {
+    position: relative;
+    flex: 0 1 300px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.search-results {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.search-result-item {
+    display: block;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background: var(--bg-secondary);
+}
+
+.search-result-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.search-result-excerpt {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.search-no-results {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.search-results mark {
+    background: #fef08a;
+    padding: 0 2px;
 }
 
 /* Hero Section */
@@ -254,10 +327,71 @@ a:hover {
 }
 
 /* Single Post */
-.post-single {
+.post-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 3rem;
     padding: 3rem 0;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+.toc-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.toc {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.toc-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+}
+
+.toc-list li {
+    margin-bottom: 0.5rem;
+}
+
+.toc-list a {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    display: block;
+    padding: 0.25rem 0;
+    transition: color 0.2s;
+}
+
+.toc-list a:hover,
+.toc-list a.active {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.toc-level-1 {
+    padding-left: 0;
+}
+
+.toc-level-2 {
+    padding-left: 1rem;
+    font-size: 0.85rem;
+}
+
+.post-single {
+    max-width: 800px;
 }
 
 .post-header {
@@ -400,12 +534,26 @@ a:hover {
         gap: 1rem;
     }
     
+    .search-container {
+        width: 100%;
+        flex: 1 1 100%;
+    }
+    
     .hero h1 {
         font-size: 2rem;
     }
     
     .posts-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .post-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .toc-sidebar {
+        position: static;
+        max-height: none;
     }
     
     .post-header h1 {
@@ -415,4 +563,59 @@ a:hover {
     .post-nav {
         flex-direction: column;
     }
+}
+
+/* Tags Cloud */
+.tags-cloud-page {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.tags-cloud-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.tags-cloud-page .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+}
+
+.tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tag-cloud-item {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-color);
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.tag-cloud-item:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+.tag-count {
+    font-size: 0.85em;
+    color: var(--text-light);
+}
+
+.tag-cloud-item:hover .tag-count {
+    color: rgba(255, 255, 255, 0.8);
 }

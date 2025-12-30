@@ -6,7 +6,12 @@
         <ul class="nav-menu">
             <li><a href="{{ "/" | relURL }}" class="{{ if .IsHome }}active{{ end }}">Home</a></li>
             <li><a href="{{ "/blog" | relURL }}" class="{{ if eq .Section "blog" }}active{{ end }}">Blog</a></li>
+            <li><a href="{{ "/tags" | relURL }}" class="{{ if eq .Section "tags" }}active{{ end }}">Tags</a></li>
             <li><a href="{{ "/cv" | relURL }}" class="{{ if eq .RelPermalink "/cv/" }}active{{ end }}">CV</a></li>
         </ul>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Tìm kiếm..." class="search-input">
+            <div id="search-results" class="search-results"></div>
+        </div>
     </nav>
 </header>
