@@ -4,13 +4,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchResults = document.getElementById('search-results');
     let posts = [];
 
-    // Load posts data
-    fetch('/index.json')
-        .then(response => response.json())
+    // Load posts data - use relative path for GitHub Pages
+    const baseUrl = window.location.pathname.replace(/\/$/, '');
+    const indexPath = baseUrl + '/index.json';
+    
+    fetch(indexPath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Index not found');
+            }
+            return response.json();
+        })
         .then(data => {
             posts = data;
+            console.log('Search index loaded:', posts.length, 'posts');
         })
-        .catch(err => console.log('Search index not available'));
+        .catch(err => {
+            console.log('Search index not available:', err);
+            // Try alternative path
+            fetch('/index.json')
+                .then(response => response.json())
+                .then(data => {
+                    posts = data;
+                    console.log('Search index loaded from root:', posts.length, 'posts');
+                })
+                .catch(e => console.log('Failed to load search index'));
+        });
 
     if (searchInput) {
         searchInput.addEventListener('input', function(e) {
