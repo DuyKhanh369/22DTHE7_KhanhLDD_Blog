@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous JavaScript: Promises và Async/Await - Blog Lập Trình - KhanhLDD</title>
+    <meta name="description" content="Blog chia sẻ kiến thức về lập trình Java và JavaScript">
+    <link rel="stylesheet" href="/22DTHC5-7_KhanhLDD_Blog/css/style.css">
+</head>
+<body>
+    <header class="header">
+    <nav class="nav container">
+        <div class="nav-brand">
+            <a href="/">Blog Lập Trình - KhanhLDD</a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/" class="">Home</a></li>
+            <li><a href="/blog" class="active">Blog</a></li>
+            <li><a href="/cv" class="">CV</a></li>
+        </ul>
+    </nav>
+</header>
+
+    
+    <main class="container">
+        
+<article class="post-single">
+    <header class="post-header">
+        <h1>Asynchronous JavaScript: Promises và Async/Await</h1>
+        <div class="post-meta">
+            <time>22/12/2025</time>
+            
+            <span class="tags">
+                
+                <span class="tag">JavaScript</span>
+                
+                <span class="tag">Async</span>
+                
+                <span class="tag">Promises</span>
+                
+            </span>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <h2 id="lập-trình-bất-đồng-bộ-là-gì">Lập trình bất đồng bộ là gì?</h2>
+<p>Lập trình bất đồng bộ cho phép code tiếp tục thực thi trong khi chờ đợi các thao tác mất thời gian (API calls, file I/O&hellip;).</p>
+<h2 id="callback-cách-cũ">Callback (Cách cũ)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getData</span>(<span style="color:#a6e22e">callback</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>(<span style="color:#e6db74">&#39;Data loaded&#39;</span>);
+</span></span><span style="display:flex;"><span>    }, <span style="color:#ae81ff">1000</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">getData</span>((<span style="color:#a6e22e">data</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h3 id="vấn-đề-callback-hell">Vấn đề: Callback Hell</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">getData1</span>((<span style="color:#a6e22e">data1</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">getData2</span>(<span style="color:#a6e22e">data1</span>, (<span style="color:#a6e22e">data2</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">getData3</span>(<span style="color:#a6e22e">data2</span>, (<span style="color:#a6e22e">data3</span>) =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Quá nhiều nested callbacks
+</span></span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h2 id="promises">Promises</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getData</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;Data loaded&#39;</span>);
+</span></span><span style="display:flex;"><span>        }, <span style="color:#ae81ff">1000</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">getData</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">data</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>))
+</span></span><span style="display:flex;"><span>    .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>));
+</span></span></code></pre></div><h3 id="promise-chaining">Promise Chaining</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">getData1</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">data1</span> =&gt; <span style="color:#a6e22e">getData2</span>(<span style="color:#a6e22e">data1</span>))
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">data2</span> =&gt; <span style="color:#a6e22e">getData3</span>(<span style="color:#a6e22e">data2</span>))
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">data3</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data3</span>))
+</span></span><span style="display:flex;"><span>    .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>));
+</span></span></code></pre></div><h2 id="asyncawait-khuyên-dùng">Async/Await (Khuyên dùng)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchData</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">getData1</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">getData2</span>(<span style="color:#a6e22e">data1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data3</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">getData3</span>(<span style="color:#a6e22e">data2</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data3</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="promiseall">Promise.all()</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getAllData</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">users</span>, <span style="color:#a6e22e">posts</span>, <span style="color:#a6e22e">comments</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> Promise.<span style="color:#a6e22e">all</span>([
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fetchUsers</span>(),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fetchPosts</span>(),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fetchComments</span>()
+</span></span><span style="display:flex;"><span>    ]);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">users</span>, <span style="color:#a6e22e">posts</span>, <span style="color:#a6e22e">comments</span> };
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="kết-luận">Kết luận</h2>
+<p>Async/await làm code bất đồng bộ dễ đọc và dễ bảo trì hơn nhiều so với callbacks.</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        <div class="post-nav">
+            
+            
+            <a href="https://duykhanh369.github.io/22DTHC5-7_KhanhLDD_Blog/blog/javascript-dom/" class="next">DOM Manipulation với JavaScript →</a>
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Blog Lập Trình - KhanhLDD. All rights reserved.</p>
+        <p>Made with ❤️ and <a href="https://gohugo.io/" target="_blank">Hugo</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

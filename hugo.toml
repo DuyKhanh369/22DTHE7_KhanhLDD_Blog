@@ -1,7 +1,8 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://duykhanh369.github.io/22DTHC5-7_KhanhLDD_Blog/'
 languageCode = 'vi'
 title = 'Blog Lập Trình - KhanhLDD'
 theme = 'minimal-blog'
+publishDir = 'docs'
 
 [params]
   authorName = "Le Dang Duy Khanh"

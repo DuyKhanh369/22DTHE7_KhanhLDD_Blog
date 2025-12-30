@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lập trình Hướng đối tượng trong Java - Blog Lập Trình - KhanhLDD</title>
+    <meta name="description" content="Blog chia sẻ kiến thức về lập trình Java và JavaScript">
+    <link rel="stylesheet" href="/22DTHC5-7_KhanhLDD_Blog/css/style.css">
+</head>
+<body>
+    <header class="header">
+    <nav class="nav container">
+        <div class="nav-brand">
+            <a href="/">Blog Lập Trình - KhanhLDD</a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/" class="">Home</a></li>
+            <li><a href="/blog" class="active">Blog</a></li>
+            <li><a href="/cv" class="">CV</a></li>
+        </ul>
+    </nav>
+</header>
+
+    
+    <main class="container">
+        
+<article class="post-single">
+    <header class="post-header">
+        <h1>Lập trình Hướng đối tượng trong Java</h1>
+        <div class="post-meta">
+            <time>29/12/2025</time>
+            
+            <span class="tags">
+                
+                <span class="tag">Java</span>
+                
+                <span class="tag">OOP</span>
+                
+            </span>
+            
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <h2 id="oop-là-gì">OOP là gì?</h2>
+<p>Lập trình hướng đối tượng (OOP - Object-Oriented Programming) là một mô hình lập trình dựa trên khái niệm &ldquo;đối tượng&rdquo;.</p>
+<h2 id="4-tính-chất-cơ-bản-của-oop">4 Tính chất cơ bản của OOP</h2>
+<h3 id="1-tính-đóng-gói-encapsulation">1. Tính đóng gói (Encapsulation)</h3>
+<p>Ẩn giấu thông tin và chỉ cho phép truy cập thông qua các phương thức công khai.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> name;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span>(String name) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="2-tính-kế-thừa-inheritance">2. Tính kế thừa (Inheritance)</h3>
+<p>Cho phép class con kế thừa các thuộc tính và phương thức từ class cha.</p>
+<h3 id="3-tính-đa-hình-polymorphism">3. Tính đa hình (Polymorphism)</h3>
+<p>Một hành động có thể được thực hiện theo nhiều cách khác nhau.</p>
+<h3 id="4-tính-trừu-tượng-abstraction">4. Tính trừu tượng (Abstraction)</h3>
+<p>Ẩn đi các chi tiết cài đặt, chỉ hiển thị các tính năng cần thiết.</p>
+<h2 id="kết-luận">Kết luận</h2>
+<p>OOP giúp code dễ bảo trì, mở rộng và tái sử dụng.</p>
+
+    </div>
+    
+    <footer class="post-footer">
+        <div class="post-nav">
+            
+            <a href="https://duykhanh369.github.io/22DTHC5-7_KhanhLDD_Blog/blog/java-collections/" class="prev">← Collection Framework trong Java</a>
+            
+            
+            <a href="https://duykhanh369.github.io/22DTHC5-7_KhanhLDD_Blog/blog/java-co-ban/" class="next">Giới thiệu về Java Cơ bản →</a>
+            
+        </div>
+    </footer>
+</article>
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Blog Lập Trình - KhanhLDD. All rights reserved.</p>
+        <p>Made with ❤️ and <a href="https://gohugo.io/" target="_blank">Hugo</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
