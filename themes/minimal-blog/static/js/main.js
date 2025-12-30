@@ -4,9 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchResults = document.getElementById('search-results');
     let posts = [];
 
-    // Load posts data - use base href from HTML
-    const baseUrl = document.querySelector('base')?.href || window.location.origin;
-    const indexUrl = new URL('index.json', baseUrl).href;
+    // Load posts data - get base path from current location
+    const pathSegments = window.location.pathname.split('/').filter(p => p);
+    // If we're in a GitHub Pages project (not root), use the first segment as base
+    let basePath = '/';
+    if (pathSegments.length > 0 && window.location.hostname.includes('github.io')) {
+        basePath = '/' + pathSegments[0] + '/';
+    }
+    const indexUrl = basePath + 'index.json';
     
     console.log('Loading search index from:', indexUrl);
     
