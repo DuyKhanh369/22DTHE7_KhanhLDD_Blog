@@ -13,6 +13,17 @@
     --bg-secondary: #f9fafb;
     --border-color: #e5e7eb;
     --max-width: 1000px;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --primary-color: #3b82f6;
+    --text-color: #e5e7eb;
+    --text-light: #9ca3af;
+    --bg-color: #111827;
+    --bg-secondary: #1f2937;
+    --border-color: #374151;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 body {
@@ -20,6 +31,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -78,6 +90,40 @@ a:hover {
     color: var(--primary-color);
 }
 
+/* Theme Toggle */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-toggle {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--primary-color);
+}
+
+[data-theme="light"] .moon-icon {
+    display: none;
+}
+
+[data-theme="dark"] .sun-icon {
+    display: none;
+}
+
 /* Search */
 .search-container {
     position: relative;
@@ -90,6 +136,8 @@ a:hover {
     border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 0.9rem;
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
 .search-input:focus {
@@ -147,6 +195,11 @@ a:hover {
 .search-results mark {
     background: #fef08a;
     padding: 0 2px;
+}
+
+[data-theme="dark"] .search-results mark {
+    background: #ca8a04;
+    color: #fef3c7;
 }
 
 /* Hero Section */

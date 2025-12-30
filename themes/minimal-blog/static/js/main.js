@@ -1,3 +1,21 @@
+// Theme Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize theme from localStorage or system preference
+    const savedTheme = localStorage.getItem('theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
+});
+
 // Search Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
