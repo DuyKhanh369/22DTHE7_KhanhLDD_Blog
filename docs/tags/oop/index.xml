@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OOP on Blog Lập Trình - KhanhLDD</title>
-    <link>http://localhost:1313/22DTHE7_KhanhLDD_Blog/tags/oop/</link>
+    <link>https://duykhanh369.github.io/22DTHE7_KhanhLDD_Blog/tags/oop/</link>
     <description>Recent content in OOP on Blog Lập Trình - KhanhLDD</description>
     <generator>Hugo</generator>
     <language>vi</language>
     <lastBuildDate>Mon, 29 Dec 2025 10:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/22DTHE7_KhanhLDD_Blog/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://duykhanh369.github.io/22DTHE7_KhanhLDD_Blog/tags/oop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lập trình Hướng đối tượng trong Java</title>
-      <link>http://localhost:1313/22DTHE7_KhanhLDD_Blog/blog/java-oop/</link>
+      <link>https://duykhanh369.github.io/22DTHE7_KhanhLDD_Blog/blog/java-oop/</link>
       <pubDate>Mon, 29 Dec 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/22DTHE7_KhanhLDD_Blog/blog/java-oop/</guid>
+      <guid>https://duykhanh369.github.io/22DTHE7_KhanhLDD_Blog/blog/java-oop/</guid>
       <description>&lt;h2 id=&#34;oop-là-gì&#34;&gt;OOP là gì?&lt;/h2&gt;&#xA;&lt;p&gt;Lập trình hướng đối tượng (OOP - Object-Oriented Programming) là một mô hình lập trình dựa trên khái niệm &amp;ldquo;đối tượng&amp;rdquo;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;4-tính-chất-cơ-bản-của-oop&#34;&gt;4 Tính chất cơ bản của OOP&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-tính-đóng-gói-encapsulation&#34;&gt;1. Tính đóng gói (Encapsulation)&lt;/h3&gt;&#xA;&lt;p&gt;Ẩn giấu thông tin và chỉ cho phép truy cập thông qua các phương thức công khai.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Student&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; String name;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; age;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color:#a6e22e&#34;&gt;getName&lt;/span&gt;() {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; name;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setName&lt;/span&gt;(String name) {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; name;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-tính-kế-thừa-inheritance&#34;&gt;2. Tính kế thừa (Inheritance)&lt;/h3&gt;&#xA;&lt;p&gt;Cho phép class con kế thừa các thuộc tính và phương thức từ class cha.&lt;/p&gt;</description>
     </item>
   </channel>
