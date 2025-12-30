@@ -109,8 +109,40 @@ document.addEventListener('DOMContentLoaded', function() {
             tocHTML += '</ul>';
             tocContainer.innerHTML = tocHTML;
             
+            // Smooth scroll for TOC links
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
             // Highlight active section on scroll
-            window.addEventListener('scroll', highlightTOC);
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        highlightTOC();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+            
+            // Initial highlight
+            highlightTOC();
         } else {
             tocContainer.style.display = 'none';
         }
@@ -120,14 +152,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const headings = document.querySelectorAll('.post-content h2, .post-content h3');
         const tocLinks = document.querySelectorAll('.toc-list a');
         
+        if (headings.length === 0) return;
+        
         let current = '';
-        headings.forEach(heading => {
-            const rect = heading.getBoundingClientRect();
-            if (rect.top <= 100) {
+        const scrollPosition = window.scrollY + 150; // Offset để highlight sớm hơn
+        
+        // Tìm heading gần nhất với vị trí scroll hiện tại
+        headings.forEach((heading, index) => {
+            const headingTop = heading.offsetTop;
+            
+            if (scrollPosition >= headingTop) {
                 current = heading.id;
             }
         });
         
+        // Nếu ở đầu trang, highlight heading đầu tiên
+        if (!current && headings.length > 0) {
+            current = headings[0].id;
+        }
+        
+        // Update active class
         tocLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${current}`) {
