@@ -2,6 +2,7 @@
 title: "Asynchronous JavaScript: Promises và Async/Await"
 date: 2025-12-22T10:00:00+07:00
 tags: ["JavaScript", "Async", "Promises"]
+image: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=800&h=400&fit=crop"
 ---
 
 ## Lập trình bất đồng bộ là gì?

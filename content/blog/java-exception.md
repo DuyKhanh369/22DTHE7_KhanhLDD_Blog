@@ -2,6 +2,7 @@
 title: "Exception Handling trong Java"
 date: 2025-12-27T10:00:00+07:00
 tags: ["Java", "Exception"]
+image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=400&fit=crop"
 ---
 
 ## Exception là gì?

@@ -10,17 +10,19 @@
 
 <div class="posts-list">
     {{ range .Pages }}
+    {{ $permalink := .Permalink }}
+    {{ $title := .Title }}
     <article class="post-item">
         <div class="post-item-wrapper">
             {{ with .Params.image }}
             <div class="post-item-image">
-                <a href="{{ $.Permalink }}">
-                    <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+                <a href="{{ $permalink }}">
+                    <img src="{{ . }}" alt="{{ $title }}" loading="lazy">
                 </a>
             </div>
             {{ end }}
             <div class="post-item-content">
-                <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                <h2><a href="{{ $permalink }}">{{ $title }}</a></h2>
                 <div class="post-meta">
                     <time>{{ .Date.Format "02/01/2006" }}</time>
                     {{ with .Params.tags }}

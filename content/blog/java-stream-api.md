@@ -2,6 +2,7 @@
 title: "Stream API trong Java 8"
 date: 2025-12-26T10:00:00+07:00
 tags: ["Java", "Java 8", "Stream"]
+image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop"
 ---
 
 ## Stream API là gì?
