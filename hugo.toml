@@ -3,6 +3,8 @@ languageCode = 'vi'
 title = 'Blog Lập Trình - KhanhLDD'
 theme = 'minimal-blog'
 publishDir = 'docs'
+canonifyURLs = true
+relativeURLs = false
 
 [params]
   authorName = "Le Dang Duy Khanh"
